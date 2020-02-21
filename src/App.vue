@@ -9,11 +9,11 @@
             <div id="footer">
                 <footer-foo></footer-foo>
             </div>
-            <transition name="bg" >
-                <img src="./assets/bg.png" id="bg" :style="{width : windowScreenWidth + 'px;' ,height : windowScreenHeight + 'px'}" alt="sd" v-if="beginTest">
-            </transition>
-        </div>
 
+        </div>
+        <transition name="bg" >
+            <img src="./assets/bg.png" id="bg" :style="{width : windowScreenWidth + 'px;' ,height : windowScreenHeight + 'px'}" alt="sd" v-if="beginTest">
+        </transition>
     </div>
 </template>
 
@@ -39,7 +39,7 @@
  }
 
  #bg{
-     z-index: -1;
+     z-index: -2;
      top: 0;
      position: fixed;
  }
@@ -52,7 +52,7 @@
     opacity: 1;
 }
 .bg-enter-active {
-    transition: opacity 2.5s;
+    transition: opacity 1s;
 }
 </style>
 <script>
@@ -78,8 +78,6 @@
         },
         created() {
 
-            this.beforeEnter();
-            this.enter();
         },
         mounted() {
             this.beginTest = true;

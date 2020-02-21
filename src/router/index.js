@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from "../views/home";
+import currentPage from "../views/currentPage";
 
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/home',
+    path: '/home/:pageNum',
     name: 'Home',
     component : home
     // route level code-splitting
@@ -15,8 +16,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
   },
   {
+    path : "/home/:pageNum/:noteId",
+    name : 'currentPage',
+    component : currentPage
+  },
+  {
     path : "*",
-    redirect : "/home"
+    redirect : "/home/1"
   }
 ];
 
