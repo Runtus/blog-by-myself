@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from "../views/home";
 import currentPage from "../views/currentPage";
-
+import about from "../views/about";
+import classPage from "../views/class-page"
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,16 @@ const routes = [
     path : "/home/:pageNum/:noteId",
     name : 'currentPage',
     component : currentPage
+  },
+  {
+    path : "/about",
+    name : "about" ,
+    component : about
+  },
+  {
+    path : "/class",
+    name : "class",
+    component : classPage
   },
   {
     path : "*",

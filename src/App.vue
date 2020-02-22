@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="main-layout" :style="{width : windowScreenWidth + 'px',position : 'relative' }">
+        <div class="main-layout" >
             <head-bar></head-bar>
-            <side-bar :style="{height : windowScreenHeight*0.4 + 'px'}" class="side-bar"></side-bar>
+<!--            <side-bar :style="{height : windowScreenHeight*0.4 + 'px'}" class="side-bar"></side-bar>--><!--功能暂时不实现-->
             <div class="content-box" >
                 <router-view class="content"></router-view>
             </div>
@@ -14,6 +14,7 @@
         <transition name="bg" >
             <img src="./assets/bg.png" id="bg" :style="{width : windowScreenWidth + 'px;' ,height : windowScreenHeight + 'px'}" alt="sd" v-if="beginTest">
         </transition>
+        <return-top></return-top>
     </div>
 </template>
 
@@ -31,6 +32,7 @@
     position: fixed;
     width: 10%;
     top: 25%;
+
 
 }
 
@@ -59,13 +61,15 @@
     import HeadBar from "./components/head-bar";
     import SideBar from "./components/side-bar";
     import FooterFoo from "./components/footer-foo";
+    import ReturnTop from "./components/returnTop";
     export default {
-        components: {FooterFoo, SideBar, HeadBar},
+        components: {ReturnTop, FooterFoo, SideBar, HeadBar},
         data(){
             return {
                 windowScreenHeight : window.screen.height,
                 windowScreenWidth : window.screen.width,
-                beginTest : false
+                beginTest : false,
+                currentWidth : ""
             }
         },
         methods:{
@@ -81,6 +85,7 @@
         },
         mounted() {
             this.beginTest = true;
-        }
+        },
+
     }
 </script>

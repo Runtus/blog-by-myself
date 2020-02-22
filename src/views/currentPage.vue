@@ -6,8 +6,8 @@
             </div>
         </div>
 
-        <div class="button">
-            <Button size="large" type="Content" ghost="true" @click="returnBack">
+        <div class="button" >
+            <Button size="large"   @click="returnBack">
                 <Icon type="ios-arrow-back" />
                 Backward
             </Button>
@@ -43,9 +43,18 @@
                 {
                     const converter = new showdown.Converter();
                     this.data = converter.makeHtml(result.data);
-                    console.log(this.data);
-
-                    // let arra y = document.
+                    let newArray = this.data.split("img").map((data,index) => {
+                        if(index > 0)
+                        {
+                            return ` style="width:700px;height : 200px"` + data;
+                        }
+                        else
+                        {
+                            return data;
+                        }
+                    });
+                    console.log(newArray.join("img "));
+                    this.data = newArray.join("img");
                 }
 
 
@@ -57,7 +66,19 @@
             returnBack(){
                 console.log(this.$route.params.pageNum);
                 this.$router.push(`/home/${this.$route.params.pageNum}`);
+            },
+            searchAllTheImg(string){
+                let position = [];
+                let pos = string.indexOf("img");
+                position.push(pos);
+                while (pos > -1)
+                {
+                    pos = string.indexOf("img",pos+1);
+                    position.push(pos);
+                }
+                return position;
             }
+
         }
     }
 </script>

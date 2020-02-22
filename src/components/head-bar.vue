@@ -12,9 +12,9 @@
         <Row class="row-2" >
             <Col class="col-1-for-router" span="14" offset="3">
                 <Row style="height: 100%;"  type="flex">
-                    <Col class="router" span="5" @click="jumpHome" ><span  class="font">主页</span></Col>
-                    <Col  class="router" span="5" @click="jumpAbout" ><span class="font">关于我</span></Col>
-                    <Col  class="router" span="5" @click="jumpClass" ><span class="font">分类</span></Col>
+                    <Col  class="router" span="5"  ><div class="font" @click="jumpHome"><span>主页</span></div></Col>
+                    <Col  class="router" span="5" ><div class="font"  @click="jumpAbout"><span>关于我</span></div></Col>
+                    <Col  class="router" span="5"  ><div class="font" @click="jumpClass"><span>分类</span></div></Col>
                 </Row>
             </Col>
             <Col span="5" class="col-2">
@@ -49,13 +49,14 @@
         },
         methods:{
             jumpHome(){
-                this.$router.push("/home");
+                console.log("你好");
+                this.$router.push("/home/1");
             },
             jumpAbout(){
-                this.$router.push("/home");
+                this.$router.push("/about");
             },
             jumpClass(){
-                this.$router.push("/home");
+                this.$router.push("/class");
             },
             handleScroll(){
 
@@ -126,29 +127,27 @@
 }
 
 .router{
-
+    position: relative;
     border-radius: 5px;
     font-size: 30px;
     height: 100%;
     text-align: center;
     color: white;
-    padding-top: 2%;
+
     font-family: "Source Sans Pro", Helvetica, sans-serif;
     font-weight: 800; /*字体厚重*/
     letter-spacing: 0.075em;/*    文字间隔*/
-    transition: font-size  0.5s linear,color 0.5s linear,background-color 0.5s linear;
+    transition: color 0.2s linear,background-color 0.2s linear;
 
 }
 
 .router:hover{
     cursor: pointer;
-
     background-color : rgba(242,242,242,0.35);
     color: rgba(255,255,255,0.6);
-    font-size: 35px;
-
-
+    /*font-size: 35px;*/
 }
+
 
 
 .waihao-index{
@@ -159,6 +158,14 @@
     left: 40%;
     top: 500px;
     border: 10px solid white;
+}
+
+.font{
+
+
+    width: 100%;
+    height: 100%;
+    padding-top: 7.5%;
 }
 
 

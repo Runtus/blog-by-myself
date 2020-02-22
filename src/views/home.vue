@@ -1,7 +1,5 @@
 <template>
-    <div id="home" :style="{width : windowScreenWidth*0.75 + 'px'}">
-
-
+    <div id="home" >
         <Row id="head-box" :style="{height : windowScreenHeight*0.3 + 'px'}" type="flex" justify="space-between">
             <Col class="head-box-col-1" span="12">
                 即使前路艰辛，亦要勇往直前。
@@ -10,35 +8,34 @@
                 <img src="../assets/headphoto.jpg">
             </Col>
         </Row>
-
-
-
-        <div class="content-box" v-for="(data,index) in dataList">
-            <div class="singleBox" :style="{height : windowScreenHeight * 0.25 + 'px'}" v-if="index % 2 === 0" @click="turnToTheMoreInf(data)">
-                <Row class="title">
-                    <span>{{data.title}}</span>
-                </Row>
-                <Row class="class-time-box">
-                    <Col class="class" span="7" offset="2">
-                        {{data.class}}
-                    </Col>
-                    <Col class="time" span="9" offset="5">
-                        {{data.time}}
-                    </Col>
-                </Row>
-            </div>
-            <div class="doubleBox" :style="{height : windowScreenHeight * 0.25 + 'px'}" v-if="index % 2 === 1" @click="turnToTheMoreInf(data)">
-                <Row class="title">
-                    <span>{{data.title}}</span>
-                </Row>
-                <Row class="class-time-box">
-                    <Col class="class" span="7" offset="2">
-                        {{data.class}}
-                    </Col>
-                    <Col class="time" span="9" offset="5">
-                        {{data.time}}
-                    </Col>
-                </Row>
+        <div class="wai-box">
+            <div class="content-box" v-for="(data,index) in dataList">
+                <div class="singleBox" :style="{height : windowScreenHeight * 0.25 + 'px'}" v-if="index % 2 === 0" @click="turnToTheMoreInf(data)">
+                    <Row class="title">
+                        <span>{{data.title}}</span>
+                    </Row>
+                    <Row class="class-time-box">
+                        <Col class="class" span="7" offset="2">
+                            {{data.class}}
+                        </Col>
+                        <Col class="time" span="9" offset="5">
+                            {{data.time}}
+                        </Col>
+                    </Row>
+                </div>
+                <div class="doubleBox" :style="{height : windowScreenHeight * 0.25 + 'px'}" v-if="index % 2 === 1" @click="turnToTheMoreInf(data)">
+                    <Row class="title">
+                        <span>{{data.title}}</span>
+                    </Row>
+                    <Row class="class-time-box">
+                        <Col class="class" span="7" offset="2">
+                            {{data.class}}
+                        </Col>
+                        <Col class="time" span="9" offset="5">
+                            {{data.time}}
+                        </Col>
+                    </Row>
+                </div>
             </div>
         </div>
         <Row class="page">
@@ -59,7 +56,7 @@
                 dataList: [],
                 originDataList : [],
                 pageNum : 10,//页数配置
-                pageSize : 6,
+                pageSize : 8,
                 pageTotal: 10,//放置总响应页数
                 currentPage : 1
             }
@@ -121,7 +118,7 @@
 
 <style scoped>
 #home{
-
+    width: 73%;
     /*border: 1px solid black;*/
 }
 
@@ -131,11 +128,19 @@
     position: relative;
 }
 
+
+.wai-box{
+    padding-bottom: 100px;
+    background-color: rgba(245,245,245,0.6);
+}
+
+
 .content-box{
     width: 100%;
     position: relative;
     display: flex;
-    background-color: rgba(245,245,245,0.6);
+
+
 
 
 }
@@ -195,7 +200,7 @@
     width: 35%;
     display: inline;
     margin-left: 53%;
-    margin-top: -2%;
+    margin-top: -8%;
     position: relative;
     background-color: white;
     transition: background-color 0.3s ease-out;
@@ -249,5 +254,6 @@
 
 .page{
     margin-top: 5%;
+    margin-bottom: 10%;
 }
 </style>
