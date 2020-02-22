@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div  class="content-box" :style="{width : clientWidth*0.75 + 'px'}">
+    <div style="width: 75%; position:relative;">
+        <div  class="content-box" :style="{width :'100%'}">
             <div class="content" v-html="data" v-highlight style="font-size: 20px; line-height: 55px">
 
             </div>
@@ -100,7 +100,7 @@
 
 
 .button{
-    margin-left: 40%;
+    margin-left: 44%;
     margin-top: 5%;
     margin-bottom: 10%;
 }

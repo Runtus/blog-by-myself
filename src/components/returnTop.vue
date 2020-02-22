@@ -8,7 +8,7 @@
     }
 </style>
 <template>
-    <BackTop :height="50" :bottom="100" height="600" >
+    <BackTop :height="50" :bottom="100"  >
         <div class="top">返回顶端</div>
     </BackTop>
 </template>

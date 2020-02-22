@@ -14,7 +14,8 @@ import hljs from "highlight.js"
 Vue.directive('highlight', (el) => {
   const blocks = el.querySelectorAll('pre code');
   blocks.forEach((block) => {
-    hljs.highlightBlock(block);
+    hljs.highlightBlock(block,"black");
+
   });
 });
 

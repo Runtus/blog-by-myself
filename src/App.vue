@@ -12,7 +12,7 @@
 
         </div>
         <transition name="bg" >
-            <img src="./assets/bg.png" id="bg" :style="{width : windowScreenWidth + 'px;' ,height : windowScreenHeight + 'px'}" alt="sd" v-if="beginTest">
+            <img src="https://photo-1258955954.cos.ap-chengdu.myqcloud.com/%E5%8D%9A%E5%AE%A2%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87/background.jpg" id="bg" :style="{width : windowScreenWidth + 'px;' ,height : windowScreenHeight + 'px'}" alt="sd" v-if="beginTest">
         </transition>
         <return-top></return-top>
     </div>

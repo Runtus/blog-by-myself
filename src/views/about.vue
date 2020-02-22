@@ -1,9 +1,9 @@
 <template>
-    <div class="about" :style="{width : clientWidth * 0.7 + 'px',height : clientHeight * 0.8 + 'px'}">
+    <div class="about" :style="{width : '70%',height : clientHeight * 0.8 + 'px'}">
         <div class="Content">
             <ul class="ul">
                 <li class="p">在读高校生.</li>
-                <li class="p">喜欢Web开发，主攻前端，熟悉Vue，会一点node.</li>
+                <li class="p">喜欢Web开发，主攻前端，比较熟悉Vue，会一点node.</li>
                 <li class="p">平时喜欢听听音乐.</li>
                 <li class="p">这篇blog的前端代码在我的github仓库里.</li>
                 <li class="p">如有不足，欢迎和我多多交流.</li>
@@ -13,7 +13,7 @@
                     <div class="font-content">
                         <ul class="ul-3">
                             <li class="p-2"><img src="../assets/QQ.png" style="width: 23px;margin-right: 10px">邮箱 : 893119806@qq.com</li>
-                            <li class="p-2"><Icon type="logo-github" style="margin-right: 10px"/>github地址: <a href="https://github.com/RuntuS">https://github.com/RuntuS</a></li>
+                            <li class="p-2"><Icon type="logo-github" style="margin-right: 10px"/>github地址: <a href="https://github.com/RuntuS" target="_blank">https://github.com/RuntuS</a></li>
                         </ul>
                     </div>
             </div>
@@ -36,6 +36,7 @@
 <style scoped>
 .about{
     position: relative;
+    margin-bottom: 10%;
 }
 
 .Content{

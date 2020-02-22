@@ -4,6 +4,8 @@ import home from "../views/home";
 import currentPage from "../views/currentPage";
 import about from "../views/about";
 import classPage from "../views/class-page"
+import classMore from "../views/class-page/class-page-inf"
+import MoreInf  from  "../views/class-page/class-page-more-inf"
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,17 @@ const routes = [
     path : "/class",
     name : "class",
     component : classPage
+  },
+  {
+    path : "/class/:choose",
+    name : "class-choose",
+    component : classMore
+
+  },
+  {
+    path : "/class/:choose/:noteId",
+    name : "moreInf",
+    component : MoreInf
   },
   {
     path : "*",

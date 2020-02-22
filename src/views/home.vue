@@ -5,7 +5,7 @@
                 即使前路艰辛，亦要勇往直前。
             </Col>
             <Col class="head-box-col-2" span="4" >
-                <img src="../assets/headphoto.jpg">
+                <img src="https://photo-1258955954.cos.ap-chengdu.myqcloud.com/%E5%8D%9A%E5%AE%A2%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87/headphoto.jpg">
             </Col>
         </Row>
         <div class="wai-box">
