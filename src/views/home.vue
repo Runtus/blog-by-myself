@@ -1,12 +1,18 @@
 <template>
     <div id="home" >
         <Row id="head-box" :style="{height : windowScreenHeight*0.3 + 'px'}" type="flex" justify="space-between">
-            <Col class="head-box-col-1" span="12">
-                即使前路艰辛，亦要勇往直前。
+
+            <Col class="head-box-col-1" :sm="12" :xs="24">
+                即使前路艰险，亦要勇往直前。
             </Col>
-            <Col class="head-box-col-2" span="4" >
+
+
+            <Col class="head-box-col-2" :sm="4" :xs="0" >
                 <img src="https://photo-1258955954.cos.ap-chengdu.myqcloud.com/%E5%8D%9A%E5%AE%A2%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87/headphoto.jpg">
             </Col>
+
+
+
         </Row>
         <div class="wai-box">
             <div class="content-box" v-for="(data,index) in dataList">
@@ -23,6 +29,7 @@
                         </Col>
                     </Row>
                 </div>
+
                 <div class="doubleBox" :style="{height : windowScreenHeight * 0.25 + 'px'}" v-if="index % 2 === 1" @click="turnToTheMoreInf(data)">
                     <Row class="title">
                         <span>{{data.title}}</span>
@@ -36,10 +43,27 @@
                         </Col>
                     </Row>
                 </div>
+
+
+                <div class="phoneBox">
+                    <div class="Box" :style="{height : windowScreenHeight * 0.25 + 'px'}" @click="turnToTheMoreInf(data)">
+                        <Row class="phone-title">
+                            <span>{{data.title}}</span>
+                        </Row>
+                        <Row class="phone-class-time-box">
+                            <Col class="phone-class" span="3">
+                                {{data.class}}
+                            </Col>
+                            <Col class="phone-time" span="12" offset="8">
+                                {{data.time}}
+                            </Col>
+                        </Row>
+                    </div>
+                </div>
             </div>
         </div>
         <Row class="page">
-            <Col span="12" offset="8">
+            <Col :sm="{span : 12,offset : 8}" :xs="{span : 24}">
                 <Page :total="pageNum"  show-elevator @on-change="turnToNewPage"  :current="currentPage" />
             </Col>
         </Row>
@@ -118,8 +142,9 @@
 
 <style scoped>
 #home{
-    width: 73%;
+    width: 75%;
     /*border: 1px solid black;*/
+    margin:0 auto;
 }
 
 
@@ -132,6 +157,7 @@
 .wai-box{
     padding-bottom: 100px;
     background-color: rgba(245,245,245,0.6);
+
 }
 
 
@@ -139,6 +165,7 @@
     width: 100%;
     position: relative;
     display: flex;
+
 
 
 
@@ -166,6 +193,10 @@
 .head-box-col-2 > img{
     height: 100%;
     width: 100%;
+}
+
+.phoneBox{
+    display: none;
 }
 .singleBox{
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
@@ -255,5 +286,82 @@
 .page{
     margin-top: 5%;
     margin-bottom: 10%;
+}
+
+
+@media screen and (max-width: 500px){
+    #home{
+        width: 90%;
+    }
+
+
+
+
+    .head-box-col-2{
+        display: none;
+    }
+
+    .phoneBox{
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .Box{
+        font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+        border-radius: 10px;
+        /*border: 1px solid #DDDEDE;*/
+        width: 95%;
+        box-shadow: 3px 3px 4px 2px #EDEDED;
+        display: block;
+        margin: 0 auto;
+
+        position: relative;
+        background-color: white;
+        transition: background-color 0.3s ease-out;
+        padding-top: 4%;
+        padding-left: 4%;
+    }
+
+    .Box:first-child{
+        margin-top: 3%;
+    }
+
+    .Box:hover{
+        cursor: pointer;
+        background-color: rgba(245,245,245,0.6);
+    }
+
+
+
+    .phone-title{
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .phone-class-time-box{
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        width: 100%;
+        /*border-top: 1px rgb(233,233,233) solid;*/
+        /*border: 1px black solid;*/
+
+    }
+
+    .phone-class{
+        font-size: 20px;
+
+    }
+
+    .phone-time{
+        font-size: 20px;
+
+    }
+
+    .singleBox,.doubleBox{
+        display: none;
+    }
+
 }
 </style>

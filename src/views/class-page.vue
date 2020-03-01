@@ -41,13 +41,15 @@
 <style scoped>
 .class{
     width: 70%;
-    background-color: rgba(244,244,244,0.5);
+    background-color: rgba(244,244,244,0.7);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
     margin-bottom: 10%;
+    margin-left:auto ;
+    margin-right: auto;
 }
 
 
@@ -95,5 +97,18 @@
     left: 0;
     bottom: 0;
 
+}
+
+
+@media screen and (max-width: 500px){
+    .class{
+    width: 90%;
+
+    }
+    .block-for-class{
+        width: 95%;
+        margin: 4% auto;
+        border: 1px solid rgba(230,230,230,0.9);
+    }
 }
 </style>

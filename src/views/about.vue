@@ -1,5 +1,5 @@
 <template>
-    <div class="about" :style="{width : '70%',height : clientHeight * 0.8 + 'px'}">
+    <div class="about" :style="{height : clientHeight * 0.8 + 'px'}">
         <div class="Content">
             <ul class="ul">
                 <li class="p">在读高校生.</li>
@@ -36,13 +36,17 @@
 <style scoped>
 .about{
     position: relative;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 10%;
+    width: 75%;
+
 }
 
 .Content{
     width: 100%;
     height: 100%;
-    border: 1px solid black;
+    border: 1px solid rgba(233,233,233,0.8);
     background-color: rgba(233,233,233,0.8);
     position: relative;
 }
@@ -88,5 +92,30 @@
 .p-2{
     font-size: 25px;
     font-weight: 500;
+}
+
+@media screen and (max-width: 500px){
+    .about{
+        width : 90%;
+    }
+    .Content{
+
+    }
+
+    .p{
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .ul{
+        width: 90%;
+        padding: 10px;
+    }
+
+    .p-2{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
 }
 </style>

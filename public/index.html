@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" style="min-width: 900px; max-width: 2000px;">
+<html lang="en" style=" max-width: 2000px;">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,height = device-height,maximum-scale:1.0,user-scalable=0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <script crossorigin="anonymous" integrity="sha384-n1p+NckrH3jg+8KyXCEJPsETONv97bIEaeeov6+LkuLxo6xLmitGBeADhAOlMYa0" src="http://lib.baomitu.com/axios/0.19.2/axios.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-n1p+NckrH3jg+8KyXCEJPsETONv97bIEaeeov6+LkuLxo6xLmitGBeADhAOlMYa0" src="https://lib.baomitu.com/axios/0.19.2/axios.js"></script>
     <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
     <script src="https://unpkg.com/vue-showdown@2.3.0/dist/vue-showdown.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script></script>
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+
+      html{
+        min-width: 900px;
+      }
+      @media screen and (max-width: 500px){
+
+          body {
+            overflow-x:hidden ;
+            overflow-y: auto;
+          }
+
+         html{
+           min-width: 300px;
+         }
+      }
+
+    </style>
   </head>
   <body>
     <noscript>

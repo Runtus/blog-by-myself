@@ -1,5 +1,7 @@
 <template>
     <div id="head-bar"  :style="{height : clientHeight * 0.8 + 'px'}" >
+
+
         <Row class="row-1">
             <transition name="intro"  >
                 <Col class="font-index" v-if="hasIntro" >LaoLan's Blog</Col>
@@ -9,17 +11,21 @@
             </transition>
 
         </Row>
-        <Row class="row-2" >
-            <Col class="col-1-for-router" span="14" offset="3">
+
+
+
+        <Row   :class="(headBar || isPC) ? 'row-2' : 'row-2-go'">
+            <Col class="col-1-for-router"  :xs="17"   :sm="{span : 13, offset : 3}">
                 <Row style="height: 100%;"  type="flex">
-                    <Col  class="router" span="5"  ><div class="font" @click="jumpHome"><span>主页</span></div></Col>
-                    <Col  class="router" span="5" ><div class="font"  @click="jumpAbout"><span>关于我</span></div></Col>
-                    <Col  class="router" span="5"  ><div class="font" @click="jumpClass"><span>分类</span></div></Col>
+                    <Col  class="router" :sm="5"  :xs="6"  ><div class="font" @click="jumpHome"><span>主页</span></div></Col>
+                    <Col  class="router" :sm="5"  :xs="6"     ><div class="font"  @click="jumpAbout"><span>关于我</span></div></Col>
+                    <Col  class="router" :sm="5"  :xs="6"   ><div class="font" @click="jumpClass"><span>分类</span></div></Col>
                 </Row>
             </Col>
-            <Col span="5" class="col-2">
+
+            <Col :sm="5" :xs="7" class="col-2">
                 <a href="https://github.com/RuntuS" target="_blank" >
-                    <Icon type="logo-github" size="40"   />
+                    <Icon type="logo-github" size="35"   />
                 </a>
             </Col>
         </Row>
@@ -33,19 +39,31 @@
             return {
                 clientHeight : window.screen.height,
                 hasIntro : false,
-                waihaoIntro :false
+                waihaoIntro :false,
+                theLastY : 0,//记录上一次Y的距离
+                thisY : 0,//新的Y
+                headBar : true,
+                isPC : false
             }
         },
         created() {
             this.$Message.success("你们好");
-            console.log("你")
+            if(window.screen.width <= 500)
+            {
+                this.isPC = false
+            }
+            else
+            {
+                this.isPC = true ;
+            }
         },
         mounted() {
             setTimeout(() => {
                 this.hasIntro = true;
             },500);
 
-            window.addEventListener("scroll",this.handleScroll)
+            window.addEventListener("scroll",this.handleScroll);
+            window.addEventListener("scroll",this.changeHeadBar);
         },
         methods:{
             jumpHome(){
@@ -70,7 +88,21 @@
                     this.hasIntro = true;
                     this.waihaoIntro =false;
                 }
+            },
+
+            changeHeadBar(){
+                this.Y = window.pageYOffset;
+                let sub = this.Y - this.theLastY;
+                this.theLastY = window.pageYOffset;
+                if(sub > 0)
+                {
+                    this.headBar = false;
+                }
+                else {
+                    this.headBar = true;
+                }
             }
+
 
         }
 
@@ -108,8 +140,13 @@
 
 }
 
-.col-1-for-router{
 
+.row-2-go{
+
+}
+
+
+.col-1-for-router{
     height: 100%;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -129,7 +166,7 @@
 .router{
     position: relative;
     border-radius: 5px;
-    font-size: 30px;
+
     height: 100%;
     text-align: center;
     color: white;
@@ -161,8 +198,7 @@
 }
 
 .font{
-
-
+    font-size: 30px;
     width: 100%;
     height: 100%;
     padding-top: 7.5%;
@@ -201,5 +237,49 @@
 .wh-enter-to,.wh-leave{
     top: 500px;
     opacity: 1;
+}
+
+
+
+@media screen and ( max-width: 500px ){
+     .row-1{
+         display: none;
+     }
+
+     .row-2{
+         position: fixed;
+         width: 100%;
+         background-color: rgba(130,130,130,0.6);
+         top: 0;
+         z-index: 1;
+         height: 5%;
+         transition: 0.3s top linear;
+     }
+     .row-2-go{
+         position: fixed;
+         width: 100%;
+         background-color: rgba(130,130,130,0.6);
+         top: -5%;
+         z-index: 1;
+         height: 5%;
+         transition: 0.3s top linear;
+     }
+
+     .col-1-for-router{
+
+
+     }
+
+     .router{
+
+     }
+
+     .font{
+         font-size: 20px;
+     }
+
+
+
+
 }
 </style>

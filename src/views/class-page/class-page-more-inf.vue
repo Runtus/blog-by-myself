@@ -1,7 +1,7 @@
 <template>
-    <div style="width: 75%; position: relative;max-width: 1500px; ">
-        <div  class="content-box" :style="{width : '100%'}">
-            <div class="content" v-html="data" v-highlight style="font-size: 20px; line-height: 55px">
+    <div class= "most-out-box" >
+        <div  class="content-box-x" >
+            <div class="content-x" v-html="data" v-highlight >
 
             </div>
         </div>
@@ -38,7 +38,15 @@
                     let newArray = this.data.split("img").map((data,index) => {
                         if(index > 0)
                         {
-                            return ` style="width:700px;height : 200px"` + data;
+                            if(window.screen.width > 500)
+                            {
+                                return ` style="width:700px;height : 300px"` + data;
+                            }
+                            else
+                            {
+                                return ` style="width:300px;height : 300px"` + data;
+                            }
+
                         }
                         else
                         {
@@ -61,25 +69,64 @@
 </script>
 
 <style scoped>
-    .content-box{
-        padding-bottom: 5%;
+
+    .most-out-box{
+        margin: 0 auto;
+        width: 75%;
+        position: relative;
+        max-width: 1500px;
+
+    }
+
+    .content-box-x{
+
+        margin: 0 auto;
+        padding: 2%;
         background-color: rgba(245,245,245,0.7);
+
 
     }
 
 
-    .content{
+    .content-x{
         /*border: 1px solid red;*/
         margin-left: 14%;
         width: 80%;
+        font-size: 20px;
+        line-height: 55px;
 
     }
 
 
-    .button{
+    .button {
         margin-left: 44%;
         margin-top: 5%;
         margin-bottom: 10%;
     }
 
+
+@media screen and (max-width: 500px){
+    .most-out-box{
+        width: 90%;
+        margin: 0 auto;
+
+    }
+
+
+
+    .content-box-x{
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .content-x{
+        font-size: 14px;
+        line-height: 35px;
+    }
+
+    .button {
+        margin-left: 33%;
+
+    }
+}
 </style>
