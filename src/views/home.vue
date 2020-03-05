@@ -6,6 +6,16 @@
                 即使前路艰险，亦要勇往直前。
             </Col>
 
+<!--            <Col class="login-box" :sm="8" :xs="4">-->
+<!--                <div v-if="this.$store.state.loginData === undefined">-->
+<!--                    <login></login>-->
+<!--                </div>-->
+<!--                <div v-else>-->
+<!--                    <img :src="this.$store.state.loginData.headPhoto" alt="github-head-photo" class="head-photo-image">-->
+<!--                    <p class="name">欢迎 <span>{{this.$store.state.loginData.name}}</span></p>-->
+<!--                </div>-->
+<!--            </Col>-->
+
 
             <Col class="head-box-col-2" :sm="4" :xs="0" >
                 <img src="https://photo-1258955954.cos.ap-chengdu.myqcloud.com/%E5%8D%9A%E5%AE%A2%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87/headphoto.jpg">
@@ -71,8 +81,10 @@
 </template>
 
 <script>
+    import Login from "../components/login";
     export default {
         name: "home",
+        components: {Login},
         data(){
             return {
                 windowScreenWidth: window.screen.width,
@@ -119,6 +131,12 @@
                     this.originDataList = [...this.dataList];
                     this.pageTotal = result.data.pageTotal;
                     this.computedPageNum(this.pageTotal);
+                    if(result.data.loginData !== undefined)
+                    {
+                        localStorage.loginData = JSON.stringify(result.data.loginData);
+                    }
+
+                    console.log(result);
                 }
                 else
                 {
@@ -288,6 +306,29 @@
     margin-bottom: 10%;
 }
 
+.login-box{
+    background-color: white;
+    display: flex;
+
+}
+
+.head-photo-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    box-shadow: 2px 2px 5px 2px rgba(230,230,230,0.8);
+
+
+}
+
+.name{
+    display: inline;
+    font-size: 20px;
+    border: 5px solid rgba(230,230,230,0.8);
+    width: 7em;
+
+
+}
 
 @media screen and (max-width: 500px){
     #home{

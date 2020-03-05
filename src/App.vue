@@ -4,13 +4,17 @@
             <transition name="head-bar">
                 <head-bar class="head-bar" ></head-bar>
             </transition>
-<!--            <side-bar :style="{height : windowScreenHeight*0.4 + 'px'}" class="side-bar"></side-bar>--><!--功能暂时不实现-->
+            <side-bar :style="{height : windowScreenHeight*0.4 + 'px'}" class="side-bar"></side-bar>
             <div class="content-box" >
                 <router-view class="content"></router-view>
             </div>
+
+
             <div id="footer">
                 <footer-foo></footer-foo>
             </div>
+
+
 
         </div>
         <transition name="bg" >
@@ -37,7 +41,7 @@
 
 .side-bar{
     position: fixed;
-    width: 10%;
+    width: 5%;
     top: 25%;
 
 
@@ -116,8 +120,9 @@
     import SideBar from "./components/side-bar";
     import FooterFoo from "./components/footer-foo";
     import ReturnTop from "./components/returnTop";
+    import Login from "./components/login";
     export default {
-        components: {ReturnTop, FooterFoo, SideBar, HeadBar},
+        components: {Login, ReturnTop, FooterFoo, SideBar, HeadBar},
         data(){
             return {
                 windowScreenHeight : window.screen.height,
@@ -138,11 +143,20 @@
         },
         created() {
 
-
-
         },
         mounted() {
             this.beginTest = true;
+            setTimeout(() => {
+                if(localStorage.loginData === "")
+                {
+
+                }else
+                {
+                    this.$store.state.loginData = JSON.parse(localStorage.loginData);
+                    console.log(this.$store.state.loginData)
+                }
+            },500);
+
 
         },
 
