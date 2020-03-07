@@ -1,19 +1,7 @@
 # blog-by-myself
 
-## Project setup
-```
-npm install
-```
+*  基于Vue2.6搭建的博客。
+*  功能会慢慢进行迭代。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[博客链接](https://laolan-runtu.xyz/)
