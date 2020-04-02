@@ -1,13 +1,20 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import home from "../views/home";
-import currentPage from "../views/currentPage";
-import about from "../views/about";
-import classPage from "../views/class-page"
-import classMore from "../views/class-page/class-page-inf"
-import MoreInf  from  "../views/class-page/class-page-more-inf"
+// import Vue from 'vue'
+// import VueRouter from 'vue-router'
+// import home1 from "../views/home";
+// import currentPage from "../views/currentPage";
+// import about from "../views/about";
+// import classPage from "../views/class-page"
+// import classMore from "../views/class-page/class-page-inf"
+// import MoreInf  from  "../views/class-page/class-page-more-inf"
 
 Vue.use(VueRouter);
+
+const home = () => import("../views/home");
+const currentPage = () => import("../views/currentPage");
+const classPage = () => import("../views/class-page");
+const classMore = () => import("../views/class-page/class-page-inf");
+const MoreInf = () => import("../views/class-page/class-page-more-inf");
+const about = () => import("../views/about");
 
 const routes = [
   {
@@ -46,7 +53,9 @@ const routes = [
   },
   {
     path : "*",
-    redirect : "/home/1"
+    redirect:  to => {
+      return "/home/1"
+    }
   }
 ];
 

@@ -4,7 +4,7 @@
             <transition name="head-bar">
                 <head-bar class="head-bar" ></head-bar>
             </transition>
-            <side-bar :style="{height : windowScreenHeight*0.4 + 'px'}" class="side-bar"></side-bar>
+<!--            <side-bar :style="{height : windowScreenHeight*0.4 + 'px'}" class="side-bar"></side-bar>-->
             <div class="content-box" >
                 <router-view class="content"></router-view>
             </div>

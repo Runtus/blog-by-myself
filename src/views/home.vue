@@ -5,6 +5,7 @@
             <Col class="head-box-col-1" :sm="12" :xs="24">
                 即使前路艰险，亦要勇往直前。
             </Col>
+            <img src="https://photo-1258955954.cos.ap-chengdu.myqcloud.com/E2FCF445F98CA16BFC4061154F09818D.gif">
 
 <!--            <Col class="login-box" :sm="8" :xs="4">-->
 <!--                <div v-if="this.$store.state.loginData === undefined">-->
